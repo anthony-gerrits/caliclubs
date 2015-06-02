@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
 
 
+  resources :clubs
+  resources :places
+  resources :places
+  resources :places
   devise_for :users, controllers: {registrations: "registrations"}
   #get 'pages/home'
 
