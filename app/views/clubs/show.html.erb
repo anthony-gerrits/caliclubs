@@ -30,5 +30,27 @@
   <%= @club.user_id %>
 </p>
 
+<%= @club.latitude %>
+<%= @club.longitude %>
+
+<div id="map-canvas" style="width: 300px; height: 300px;"></div>
+
 <%= link_to 'Edit', edit_club_path(@club) %> |
 <%= link_to 'Back', clubs_path %>
+
+    <script type="text/javascript">
+      function initialize() {
+        var mycenter = { lat: <%= @club.latitude %>, lng: <%= @club.longitude %>}
+        var mapOptions = {
+          center: mycenter,
+          zoom: 13
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+        var marker = new google.maps.Marker({
+          position: mycenter,
+          map: map
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
