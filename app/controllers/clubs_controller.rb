@@ -1,4 +1,5 @@
 class ClubsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_club, only: [:show, :edit, :update, :destroy]
 
   # GET /clubs
@@ -24,7 +25,7 @@ class ClubsController < ApplicationController
   # POST /clubs
   # POST /clubs.json
   def create
-    @club = Club.new(club_params)
+    @club = current_user.clubs.new(club_params)
 
     respond_to do |format|
       if @club.save
@@ -69,6 +70,6 @@ class ClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_params
-      params.require(:club).permit(:name, :address, :description, :phone, :website, :user_id)
+      params.require(:club).permit(:name, :address, :description, :phone, :website)
     end
 end
