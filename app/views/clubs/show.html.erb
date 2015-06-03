@@ -1,42 +1,29 @@
-<p id="notice"><%= notice %></p>
-
+<div class="row">
+<div class="col-md-3">
+<h3><%= @club.name %></h3>
 <p>
-  <strong>Name:</strong>
-  <%= @club.name %>
+  <strong>Address</strong>
+<%= @club.address %>
 </p>
-
 <p>
-  <strong>Address:</strong>
-  <%= @club.address %>
+<strong>Phone</strong>
+<%= @club.phone %>
 </p>
-
 <p>
-  <strong>Description:</strong>
-  <%= @club.description %>
+<strong>Website</strong>
+<%= @club.website %>
 </p>
-
 <p>
-  <strong>Phone:</strong>
-  <%= @club.phone %>
+<strong>Club Description</strong>
+<%= @club.description %>
 </p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @club.website %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @club.user_id %>
-</p>
-
-<%= @club.latitude %>
-<%= @club.longitude %>
-
 <div id="map-canvas" style="width: 300px; height: 300px;"></div>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+</div>
+
+<div class="col-md-9">
+<h3>Club Reviews</h3> 
+</div>
 
     <script type="text/javascript">
       function initialize() {
