@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calisthenics Clubs Australia</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Stukplaces</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY5VQ6myWN1UpLnvFf7iIG4vk7T3mPiVo">
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd60iJ3DJ0iK8h_mOpFJKtohl4sqfncQY">
     </script>
 </head>
 <body>
@@ -17,7 +17,11 @@
 <%= message %>
 </div>
 <% end %>
-<div class='container'>
+<% if current_page?(root_path) %>
+<div class="landing">
+<% else %>
+<div class="container">
+<% end %>
 <%= yield %>
 </div>
 </body>

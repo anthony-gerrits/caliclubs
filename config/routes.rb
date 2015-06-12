@@ -1,22 +1,16 @@
 Rails.application.routes.draw do
-  
 
 
-  resources :clubs
   resources :places
-  resources :places
-  resources :places
-  devise_for :users, controllers: {registrations: "registrations"}
-  #get 'pages/home'
+  resources :reviews
 
-  root 'pages#home'
-
-
+  devise_for :users, controllers: { registrations: "registrations"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'pages#home'
+  get 'dashboard', to: 'pages#dashboard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
